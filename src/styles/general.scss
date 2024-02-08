@@ -1,2 +1,62 @@
 @use './partials/mixins' as *;
 @use './partials/variables' as *;
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+    padding-right: 10px;
+    font-weight: bold;
+}
+
+
+// # HEADER
+
+.header-container {
+    height: 80px;
+    background-color: #FF6900;
+    box-shadow: 2px 0 5px black;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+
+    .header-nav {
+        width: 70%;
+        height: 100%;
+        margin: auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .catalog-box {
+            min-width: 200px;
+            display: flex;
+        }
+
+        .header-logo {
+            min-width: 200px;
+            text-align: center;
+            cursor: pointer;
+
+            img {
+                height: 30px;
+            }
+        }
+
+        .header-profile {
+            min-width: 200px;
+            display: flex;
+            justify-content: end;
+        }
+    }
+}
+
