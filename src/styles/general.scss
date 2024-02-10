@@ -1,6 +1,8 @@
 @use './partials/mixins' as *;
 @use './partials/variables' as *;
 
+@import "bootstrap/scss/bootstrap";
+
 * {
     margin: 0;
     padding: 0;
@@ -17,43 +19,3 @@ a {
     padding-right: 10px;
     font-weight: bold;
 }
-
-
-// # HEADER
-
-.header-container {
-    height: 80px;
-    background-color: #FF6900;
-    box-shadow: 2px 0 5px black;
-
-    .header-nav {
-        width: 70%;
-        height: 100%;
-        margin: auto;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-
-        .catalog-box {
-            min-width: $header-min-width;
-            display: flex;
-        }
-
-        .header-logo {
-            min-width: $header-min-width;
-            text-align: center;
-            cursor: pointer;
-
-            img {
-                height: 30px;
-            }
-        }
-
-        .header-profile {
-            min-width: $header-min-width;
-            display: flex;
-            justify-content: end;
-        }
-    }
-}
-
