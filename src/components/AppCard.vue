@@ -20,31 +20,29 @@
             <img :src="generateUrl(card.backImage)" alt="back image" class="back-img">
         </div>
 
-        <div class="badge-container">
-            <div v-for="badge in card.badges"></div>
+        <div class="heart-container">
+            <i class="fa-solid fa-heart" :class="card.isInFavorites ? 'red-heart' : ''"></i>
         </div>
 
-        <!-- <div class="favourite">&hearts;</div> -->
+        <div class="badge-container d-flex">
+            <div v-for="badge in card.badges" class="badge" :class="badge.type">
+                {{ badge.value }}
+            </div>
+        </div>
 
-        <!-- <div class="label">
-            <span class="sales">-50%</span>
-            <span class="sustainability">Sostenibilità</span>
-        </div> -->
+        <div class="card-info">
+            <div class="card-brand">{{ card.brand }}</div>
+            <div class="card-name">{{ card.name }}</div>
+            <span class="current-price">{{ card.price }}</span>
+            <span class="original-price">{{ card.originalPrice }}</span>
+        </div>
 
-        <!-- <div class="container__name">
-            <span>Levi's</span>
-            <div class="product__name">RELAXED FIT TEE UNISEX</div>
-            <span class="price">14,99 €</span><span class="cancelled">29,99 €</span>
-        </div> -->
     </div>
 </template>
 
 <style lang="scss" scoped>
     .card {
         width: calc((100% / 3) - 15px);
-        display: flex;
-        flex-direction: column;
-
 
         .card-img {
             position: relative;
@@ -64,6 +62,58 @@
             &:hover .front-img {
                 display: none;
             }
+
+        }
+        
+        .heart-container {
+            padding: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            top: 10px;
+            right: 0;
+
+            background-color: white;
+        }
+
+        .red-heart {
+            color: red;
+        }
+
+        .badge-container {
+            position: absolute;
+            left: 0;
+            bottom: 120px;
+            gap: 5px;
+
+            .discount {
+                background-color: red;
+            }
+
+            .tag {
+                background-color: green;
+            }
+        }
+
+        .card-brand {
+            font-size: .7rem;
+        }
+
+        .card-name {
+            font-weight: bold;
+        }
+
+        .current-price {
+            font-size: .8rem;
+            color: red;
+            font-weight: bold;
+            margin-right: 7px;
+        }
+
+        .original-price {
+            font-size: .8rem;
+            text-decoration: line-through;
         }
     }
 </style>

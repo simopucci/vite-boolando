@@ -15,7 +15,7 @@
             name: 'Relaxed fit tee unisex',
             price: '14.99 €',
             originalPrice: '29.99 €',
-            isInFavorites: true,
+            isInFavorites: false,
             badges: [
               {
                 type: 'discount',
