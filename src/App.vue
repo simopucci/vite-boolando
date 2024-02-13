@@ -5,7 +5,7 @@
 
   import AppHeader from './components/AppHeader.vue';
   import AppMain from './components/AppMain.vue';
-  import AppFooter from './components/AppFooter.vue';
+  import AppModal from './components/AppModal.vue';
 
   export default {
     data() {
@@ -53,7 +53,7 @@
       };
     },
 
-    components: { AppHeader, AppMain, AppFooter },
+    components: { AppHeader, AppMain, AppModal },
 
     created() {
       axios.get(`${store.apiUrl}/products`).then((res) => {
@@ -65,17 +65,19 @@
 
 <template>
   <AppHeader
-  :headerLinks="headerItems.headerLinks"
-  :headerIcons="headerItems.headerIcons"
-  :logoPath="headerItems.logo">
+    :headerLinks="headerItems.headerLinks"
+    :headerIcons="headerItems.headerIcons"
+    :logoPath="headerItems.logo">
   </AppHeader>
 
+  
   <AppMain 
-  :products="products">
+    :products="products">
   </AppMain>
 
-  <AppFooter>
-  </AppFooter>
+  <AppModal 
+    v-if="store.modal.active">
+  </AppModal>
 </template>
 
 <style lang="scss">

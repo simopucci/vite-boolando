@@ -1,7 +1,8 @@
 <script>
     export default {
         props: {
-            card: Object
+            card: Object,
+            index: Number
         },
 
         methods: {
@@ -9,11 +10,13 @@
                 return new URL(path, import.meta.url).href;
             },
         },
+
+        emits: ['card-open'],
     }
 </script>
 
 <template>
-    <div class="card">
+    <div class="card" @click="$emit('card-open', index)">
 
         <div class="card-img">
             <img :src="generateUrl(card.frontImage)" alt="front image" class="front-img">
